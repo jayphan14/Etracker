@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Etracker/static/css/main.e7720ab7.css",
+    "main.js": "/Etracker/static/js/main.5d05f81a.js",
+    "index.html": "/Etracker/index.html",
+    "main.e7720ab7.css.map": "/Etracker/static/css/main.e7720ab7.css.map",
+    "main.5d05f81a.js.map": "/Etracker/static/js/main.5d05f81a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7720ab7.css",
+    "static/js/main.5d05f81a.js"
+  ]
+}
