@@ -33,11 +33,13 @@ function sendEmail(e){
   const amount = expenses.reduce((total, expense) => total + expense.amount, 0)
   const max = budgets.reduce((total, budget) => total + budget.max, 0)
   
-  const expensesList = []
+  let expensesList = ""
   
   expenses.forEach(expense => {
-    let item = `${expense.description}, ${expense.date}, ${expense.amount} \n`;
-    expensesList.push(item)})
+    let item = `<p>${expense.description} - ${expense.date} - $${expense.amount} </p>`;
+    expensesList += (item)})
+
+  
   
   const templateParams = {
     "username": "Jay Phan",
@@ -45,7 +47,8 @@ function sendEmail(e){
     "date" : today,
     "amount": amount,
     "max": max,
-    "expenses": expensesList
+    "expenses": expensesList,
+    
 
 
   }
