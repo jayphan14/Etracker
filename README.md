@@ -1,10 +1,11 @@
 # Etracker
 
-This expense tracker application allow users to set a budget for certain spending section, such as Food, Clothing and Entertainment. Expenses can be added, modified or remove from each section. The application can issue weekly email to keep the users updated on their spending
+This expense tracker application allow users to set a budget for certain spending section, such as Food, Clothing and Entertainment. Expenses can be added, modified or remove from each section. Using EmailJS API, The application can issue emails to keep the users updated on their spending.
 
 ## Technologies used
 
 The application was built with React, the front-end relied heavily on Bootstrap and data are stored locally using LocalStorage.
+CRUD API
 
 ### `npm start`
 
