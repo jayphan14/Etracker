@@ -10,6 +10,7 @@ export default function AddExpenseModal({
   const descriptionRef = useRef()
   const amountRef = useRef()
   const budgetIdRef = useRef()
+  const dateRef = useRef()
   const { addExpense, budgets } = useBudgets()
 
   function handleSubmit(e) {
@@ -18,6 +19,7 @@ export default function AddExpenseModal({
       description: descriptionRef.current.value,
       amount: parseFloat(amountRef.current.value),
       budgetId: budgetIdRef.current.value,
+      date: dateRef.current.value
     })
     handleClose()
   }
@@ -33,6 +35,15 @@ export default function AddExpenseModal({
             <Form.Label>Description</Form.Label>
             <Form.Control ref={descriptionRef} type="text" required />
           </Form.Group>
+
+        
+          <Form.Group className="mb-3" controlId="date">
+            <Form.Label>Date</Form.Label>
+            <Form.Control type="date" ref = {dateRef}></Form.Control>
+          </Form.Group>
+          
+
+
           <Form.Group className="mb-3" controlId="amount">
             <Form.Label>Amount</Form.Label>
             <Form.Control

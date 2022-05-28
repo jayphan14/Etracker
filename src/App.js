@@ -8,6 +8,8 @@ import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
 import TotalBudgetCard from "./components/TotalBudgetCard"
 import { useState } from "react"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext"
+import emailjs from '@emailjs/browser';
+
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
@@ -15,11 +17,48 @@ function App() {
   const [viewExpensesModalBudgetId, setViewExpensesModalBudgetId] = useState()
   const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState()
   const { budgets, getBudgetExpenses } = useBudgets()
+  const { expenses } = useBudgets()
 
   function openAddExpenseModal(budgetId) {
     setShowAddExpenseModal(true)
     setAddExpenseModalBudgetId(budgetId)
   }
+
+
+
+
+function sendEmail(e){
+  const current = new Date();
+  const today = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
+  const amount = expenses.reduce((total, expense) => total + expense.amount, 0)
+  const max = budgets.reduce((total, budget) => total + budget.max, 0)
+  
+  const expensesList = []
+  
+  expenses.map(expense => {
+    let item = `${expense.description}, ${expense.date}, ${expense.amount} \n`;
+    expensesList.push(item)})
+  
+  const templateParams = {
+    "username": "Jay Phan",
+    "useremail": "baph2019@cloud.edu.pe.ca",
+    "date" : today,
+    "amount": amount,
+    "max": max,
+    "expenses": expensesList
+
+
+  }
+  e.preventDefault();
+  
+
+  emailjs.send('service_5lh9t96', 'template_vbd7ydh', templateParams,"yrhxVTwOHaegr918o")
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+}
 
   return (
     <>
@@ -32,6 +71,11 @@ function App() {
           <Button variant="outline-primary" onClick={openAddExpenseModal}>
             Add Expense
           </Button>
+          
+          <Button variant="outline-primary" onClick = {sendEmail}>
+            Send Report
+          </Button>
+        
         </Stack>
         <TotalBudgetCard />
         <div

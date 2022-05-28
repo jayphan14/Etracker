@@ -37,6 +37,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
           {expenses.map(expense => (
             <Stack direction="horizontal" gap="2" key={expense.id}>
               <div className="me-auto fs-4">{expense.description}</div>
+              <div className="me-auto fs-4">{expense.date}</div>
               <div className="fs-5">
                 {currencyFormatter.format(expense.amount)}
               </div>
