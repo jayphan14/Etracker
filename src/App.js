@@ -35,7 +35,7 @@ function sendEmail(e){
   
   const expensesList = []
   
-  expenses.map(expense => {
+  expenses.forEach(expense => {
     let item = `${expense.description}, ${expense.date}, ${expense.amount} \n`;
     expensesList.push(item)})
   
