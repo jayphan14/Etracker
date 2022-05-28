@@ -1,10 +1,11 @@
-# Getting Started with Create React App
+# Etracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This expense tracker application allow users to set a budget for certain spending section, such as Food, Clothing and Entertainment. Expenses can be added, modified or remove from each section. Using EmailJS API, The application can issue emails to keep the users updated on their spending.
 
-## Available Scripts
+## Technologies used
 
-In the project directory, you can run:
+The application was built with React, the front-end relied heavily on Bootstrap and data are stored locally using LocalStorage.
+CRUD API
 
 ### `npm start`
 
